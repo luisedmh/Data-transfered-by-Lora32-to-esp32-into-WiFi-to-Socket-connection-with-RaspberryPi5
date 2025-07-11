@@ -1,0 +1,1 @@
+# Data-transfered-by-Lora32-to-esp32-into-WiFi-to-Socket-connection-with-RaspberryPi5
