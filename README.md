@@ -30,8 +30,7 @@ This project establishes an end-to-end IoT data pipeline that collects sensor da
 ## Target Applications
 
 - Remote environmental monitoring  
-- Agricultural sensor networks  
-- Industrial equipment telemetry  
+- Agricultural sensor networks    
 - Long-range IoT deployments  
 
 ## Future Roadmap
