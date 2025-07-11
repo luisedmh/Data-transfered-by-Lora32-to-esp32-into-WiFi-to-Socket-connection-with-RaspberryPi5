@@ -1,5 +1,5 @@
-Data Transfer from LoRa32 to ESP32 via WiFi to Raspberry Pi 5 Socket Connection
-Project Description
+#Data Transfer from LoRa32 to ESP32 via WiFi to Raspberry Pi 5 Socket Connection
+##Project Description
 
 This project establishes an end-to-end IoT data pipeline that collects sensor data using LoRa wireless communication, bridges it to WiFi via ESP32, and finally stores it on a Raspberry Pi 5 server through a custom socket connection.
 Key Components
