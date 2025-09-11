@@ -37,5 +37,4 @@ This project establishes an end-to-end IoT data pipeline that collects sensor da
 
 ◉ Add data encryption for secure transmission  
 ◉ Implement MQTT fallback channel  
-◉ Develop web-based data visualization  
-◉ Create Docker container for Pi server  
+◉ Develop web-based data visualization   
