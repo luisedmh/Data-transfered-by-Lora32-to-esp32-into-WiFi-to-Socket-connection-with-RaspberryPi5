@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project establishes an end-to-end IoT data pipeline that collects sensor data using LoRa wireless communication, bridges it to WiFi via ESP32, and finally stores it on a Raspberry Pi 5 server through a custom socket connection.
+This project establishes an end-to-end IoT data pipeline that collects sensor data and sending it via LoRa wireless communication, bridges it to WiFi via ESP32, and finally stores it on a Raspberry Pi 5 server through a custom socket connection.
 
 ## Key Components
 
