@@ -1,36 +1,45 @@
-// Configuración del módulo E32 como EMISOR (dir 0x0001)
+#include <Arduino.h>
 
-#define PIN_M0 18
-#define PIN_M1 19
+#define PIN_M0 22
+#define PIN_M1 23
+#define PIN_AUX    // AUX del módulo
 
 void setMode(bool m0, bool m1) {
   digitalWrite(PIN_M0, m0);
   digitalWrite(PIN_M1, m1);
-  delay(50); // un poco de margen
+  delay(50); // margen
+}
+
+void waitAuxHigh() {
+  while (digitalRead(PIN_AUX) == LOW);
+  delay(2); // recomendado por datasheet
 }
 
 void setup() {
-  Serial.begin(9600);       // Monitor serie
-  Serial2.begin(9600);      // UART al E32 (GPIO16=RX, GPIO17=TX)
-
   pinMode(PIN_M0, OUTPUT);
   pinMode(PIN_M1, OUTPUT);
+  pinMode(PIN_AUX, INPUT);
 
-  // 1. Modo configuración (M0=1, M1=1)
+  Serial.begin(9600);
+  Serial2.begin(9600, SERIAL_8N1, 16, 17); // RX=16, TX=17
+
+  // Entrar en modo configuración (M0=1, M1=1)
   setMode(HIGH, HIGH);
+  waitAuxHigh();
 
-  Serial.println("Configurando modulo EMISOR...");
+  Serial.println("Configurando módulo...");
 
-  // Comando AT: C0 00 01 1A 06 46
-  // -> Guardar config, direccion 0x0001, UART=9600, aire=2.4kbps, canal=0x06 (868 MHz), potencia=24dBm
-  byte cmd[6] = {0xC0, 0x00, 0x01, 0x1A, 0x06, 0x46};
-  // -> Guardar config, direccion 0x0002, UART=9600, aire=2.4kbps, canal=0x06 (868 MHz), potencia=24dBm
-  //byte cmd[6] = {0xC0, 0x00, 0x02, 0x1A, 0x06, 0x46};
+  // CONFIGURA AQUÍ:
+  // Dirección = 0x0001 (emisor), Canal=0x06 (868 MHz), UART=9600, aire=2.4kbps, potencia=30dBm
+  byte cmd[6] = {0xC0, 0x00, 0x01, 0x1A, 0x06, 0x44};
+  // Dirección = 0x0002 (receptor), mismo canal
+  // byte cmd[6] = {0xC0, 0x00, 0x02, 0x1A, 0x06, 0x44};
+
   Serial2.write(cmd, 6);
-
-  delay(200);
+  waitAuxHigh();
 
   // Leer respuesta
+  delay(200);
   while (Serial2.available()) {
     byte b = Serial2.read();
     Serial.print("0x");
@@ -39,9 +48,9 @@ void setup() {
   }
   Serial.println();
 
-  Serial.println("Configuracion enviada.");
+  Serial.println("Configuración enviada.");
 }
 
 void loop() {
-  // Nada, configuración es solo una vez
+  // nada
 }
