@@ -2,7 +2,7 @@
 
 #define PIN_M0 22
 #define PIN_M1 23
-#define PIN_AUX    // AUX del módulo
+#define PIN_AUX 21   // AUX del módulo
 
 void setMode(bool m0, bool m1) {
   digitalWrite(PIN_M0, m0);
