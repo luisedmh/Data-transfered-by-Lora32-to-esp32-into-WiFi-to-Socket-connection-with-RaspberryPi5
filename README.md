@@ -22,10 +22,10 @@ This project establishes an end-to-end IoT data pipeline that collects sensor da
 
 ## Technical Highlights
 
-✔ **Hybrid Wireless Architecture**: Combines LoRa's long-range capabilities with WiFi's high bandwidth  
-✔ **Custom Protocol Implementation**: Efficient binary data transmission  
-✔ **Time-Series Data Storage**: Automatic file organization with timestamped archives  
-✔ **Network Resiliency**: Handles intermittent connections and retransmissions  
+- **Hybrid Wireless Architecture**: Combines LoRa's long-range capabilities with WiFi's high bandwidth  
+- **Custom Protocol Implementation**: Efficient binary data transmission  
+- **Time-Series Data Storage**: Automatic file organization with timestamped archives  
+- **Network Resiliency**: Handles intermittent connections and retransmissions  
 
 ## Target Applications
 
@@ -35,6 +35,6 @@ This project establishes an end-to-end IoT data pipeline that collects sensor da
 
 ## Future Roadmap
 
-◉ Add data encryption for secure transmission  
-◉ Implement MQTT fallback channel  
-◉ Develop web-based data visualization   
+- Add data encryption for secure transmission  
+- Implement MQTT fallback channel
+- Develop web-based data visualization   
